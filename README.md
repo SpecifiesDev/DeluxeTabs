@@ -4,12 +4,14 @@ Spigot link: (insert)
 # Information
 As of right now there are 22 customizable name tags. You can set them to whatever you would like in the prefix.yml file. You can also set the command and gui prefixes in config.yml.
 # Commands
+```yml
 /tabprefix
     Upon execution of this command a GUI is openened, allowing them to click on nametags that have corresponding values from prefixes.yml.
 /setprefix
     Allows the console, or a player with appropriate permissions, to manually set a player's default prefix.
 /clearprefix
     Allows the console, or a player with appropriate permissions, to manually clear a player's default prefix.
+```
 # Permissions
 ```yml
 permissions:
