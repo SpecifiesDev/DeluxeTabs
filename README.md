@@ -26,7 +26,7 @@ permissions:
     deluxetabs.setprefix
         Allows a player to manually set the prefix of a player.
     deluxetabs.clearprefix
-        Allows a plaer to manually clear the prefix of a player.
+        Allows a player to manually clear the prefix of a player.
 ```
 # Dependencies
 ```java
