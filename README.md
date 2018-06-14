@@ -28,7 +28,7 @@ permissions:
     deluxetabs.clearprefix
         Allows a plaer to manually clear the prefix of a player.
 ```
-#Depencies
+# Dependencies
 ```java
 [Dependencies]: Vault, A group management plugin
 ```
