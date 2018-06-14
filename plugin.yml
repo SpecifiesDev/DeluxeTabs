@@ -1,0 +1,13 @@
+name: DeluxeTabs
+main: me.specifies.core.DeluxeTabs
+version: 1.1
+commands:
+    tabprefix:
+        description: Add fancy prefix.
+        usage: /tabprefix
+    setprefix:
+        description: Set a players prefix.
+        usage: /setprefix
+    clearprefix:
+        description: Clear a players prefix.
+        usage: /clearprefix
