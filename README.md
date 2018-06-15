@@ -7,6 +7,8 @@ As of right now there are 22 customizable name tags. You can set them to whateve
 ```yml
 /tabprefix
     Upon execution of this command a GUI is openened, allowing them to click on nametags that have corresponding values from prefixes.yml.
+/tabprefix help
+    Provides a description of what each command does.
 /setprefix
     Allows the console, or a player with appropriate permissions, to manually set a player's default prefix.
 /clearprefix
