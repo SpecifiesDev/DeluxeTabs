@@ -43,11 +43,16 @@ public class GUIClick implements Listener{
 		File pf = new File(plugin.getDataFolder() + File.separator + "players" + File.separator + u + ".yml");
 		FileConfiguration conf = YamlConfiguration.loadConfiguration(pf);
 		
-		ItemStack item = e.getCurrentItem();
-		String name = item.getItemMeta().getDisplayName();
+
 		String ctitle = plugin.getConfig().getString("command-prefix");
 		
 		if(e.getInventory().getName().equals(guipreff)) {
+			ItemStack item = e.getCurrentItem();
+			if(item == null || item.getType() == Material.AIR) {
+				return;
+				
+			} 
+			String name = item.getItemMeta().getDisplayName();
 			if(item.getType() == Material.STAINED_GLASS_PANE) {
 				e.setCancelled(true);
 			}
@@ -268,6 +273,8 @@ public class GUIClick implements Listener{
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
+					String final1 = DeluxeTabs.getChat().getPlayerPrefix(p);
+					p.setPlayerListName(plugin.color(final1 + " &7" + p.getName()));
 					p.sendMessage(plugin.color(ctitle + " &7You have disabled your prefixes."));
 					p.closeInventory();
 					

@@ -31,6 +31,8 @@ public class CreatePrefix implements CommandExecutor{
 	}
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     	String gtitle = plugin.getConfig().getString("command-prefix");
+    	int charlimit = plugin.getConfig().getInt("character-limit");
+    	String charstring = Integer.toString(charlimit);
     	if(cmd.getName().equalsIgnoreCase("setprefix")) {
     		if(!(sender instanceof Player)) {
     			if(args.length == 2) {
@@ -44,6 +46,9 @@ public class CreatePrefix implements CommandExecutor{
         				File pf = new File(plugin.getDataFolder() + File.separator + "players" + File.separator + u + ".yml");
         				FileConfiguration conf = YamlConfiguration.loadConfiguration(pf);
     					String arg1 = args[1].toString();
+    					if(arg1.length() > charlimit) {
+    					sender.sendMessage(plugin.color(gtitle + " &cIt appears that the prefix you have entered exceeds the maximum character limit of &6" + charstring + "&c."));	
+    					} else {
     					sender.sendMessage(plugin.color(gtitle + " &7The prefix of the player &6" + pn + " &7has been set to " + arg1));
     					player.setPlayerListName(plugin.color(arg1 + " &7" + player.getName()));
     					conf.set("current-prefix", arg1);
@@ -53,6 +58,7 @@ public class CreatePrefix implements CommandExecutor{
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
+    				}
     				}
     			} else {
     				sender.sendMessage(plugin.color(gtitle + " &cUsage: /setprefix <player> <prefix>"));
@@ -71,6 +77,9 @@ public class CreatePrefix implements CommandExecutor{
         				File pf = new File(plugin.getDataFolder() + File.separator + "players" + File.separator + u + ".yml");
         				FileConfiguration conf = YamlConfiguration.loadConfiguration(pf);
     					String arg1 = args[1].toString();
+    					if(arg1.length() > charlimit) {
+    						p.sendMessage(plugin.color(gtitle + " &cIt appears the prefix you have entered exceeds the maximum character limit of &6" + charstring + "&c."));
+    					} else {
     					p.sendMessage(plugin.color(gtitle + " &7The prefix of the player &6" + pn + " &7has been set to " + arg1));
     					player.setPlayerListName(plugin.color(arg1 + " &7" + player.getName()));
     					conf.set("current-prefix", arg1);
@@ -80,6 +89,7 @@ public class CreatePrefix implements CommandExecutor{
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
+    				}
     				}
     			}
     			else {

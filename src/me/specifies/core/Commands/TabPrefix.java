@@ -38,7 +38,26 @@ public class TabPrefix implements CommandExecutor{
 	}
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     	String pmsg = plugin.getConfig().getString("command-prefix");
+    	String ctitle = plugin.getConfig().getString("gui-prefix");
     	if(cmd.getName().equalsIgnoreCase("tabprefix")) {
+    	if(args.length == 1) {	
+    		if(args[0].equalsIgnoreCase("help")) {
+    			if(!(sender instanceof Player)) {
+    				sender.sendMessage(plugin.color(ctitle + " &cYou must be a player to use this command."));
+    			} else {
+    			Player help = (Player) sender;
+    			help.sendMessage(plugin.color("&8&m-----------------------&7[" + ctitle + "&7]&8&m-----------------------"));
+    			help.sendMessage(plugin.color("&c&l/tabprefix&7&l:"));
+    			help.sendMessage(plugin.color("&bOpen up a GUI where players can toggle prefixes they have access to."));
+    			help.sendMessage(plugin.color("&c&l/setprefix&7&l:"));
+    			help.sendMessage(plugin.color("&bManually set the prefix of a target player."));
+    			help.sendMessage(plugin.color("&c&l/clearprefix&7&l:"));
+    			help.sendMessage(plugin.color("&bManually clear the prefix of a target player."));
+    			}
+    		}
+    	} else {	
+    		
+    		
         	if(!(sender instanceof Player)) {
         		plugin.message(plugin.color(pmsg + "&cYou must be a player to use this command."));
         	} else {
@@ -54,6 +73,7 @@ public class TabPrefix implements CommandExecutor{
     		}
     	}
     	}
+    }
         return true;
     }
     public void createGui(Player p, int slots, String prefix) {
@@ -157,6 +177,7 @@ public class TabPrefix implements CommandExecutor{
     	inv.setItem(44, glass);
     	p.openInventory(inv);
     }
+    
     public ItemStack newItem(String name, Material m, int amount) {
     	ItemStack ne = new ItemStack(m, amount);
     	ItemMeta nem = ne.getItemMeta();

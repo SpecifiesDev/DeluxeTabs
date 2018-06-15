@@ -36,7 +36,7 @@ public class ClearPrefix implements CommandExecutor{
         		if(args.length == 1) {
         			Player np = Bukkit.getPlayer(args[0]);
         			if(np == null) {
-        				sender.sendMessage(plugin.color(prefix + " &cIt appears that player is not online."));
+        				sender.sendMessage(plugin.color(prefix + " &cIt appears that the target player is not online."));
         			} else {
         				UUID u = np.getUniqueId();
         				File pf = new File(plugin.getDataFolder() + File.separator + "players" + File.separator + u + ".yml");
@@ -61,7 +61,7 @@ public class ClearPrefix implements CommandExecutor{
         		if(args.length == 1) {
         			Player np = Bukkit.getPlayer(args[0]);
         			if(np == null) {
-        				p.sendMessage(plugin.color(prefix + " &cIt appears that player is not online."));
+        				p.sendMessage(plugin.color(prefix + " &cIt appears that the target player is not online."));
         			} else {
         				UUID u = np.getUniqueId();
         				File pf = new File(plugin.getDataFolder() + File.separator + "players" + File.separator + u + ".yml");
